@@ -91,8 +91,6 @@ const Header = () => {
                 onClick={handleClick('contactme')}>
                 Contact me
               </a>
-
-              {/* <Link to={{pathname: '/this-view-path', hash: '#faq-1'}}>Question 1</Link> */}
             </HStack>
           </nav>
         </HStack>
