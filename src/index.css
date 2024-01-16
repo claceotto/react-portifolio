@@ -15,3 +15,10 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+/*Stlye for the social media links*/
+
+a.external-link {
+  padding-right: 2rem;
+}
