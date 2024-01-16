@@ -34,12 +34,14 @@ const socials = [
 
 const externalLinks = socials.map(social => {
   return (
-    <a href="social.url">
+    <a className='external-link' href="social.url">
       <FontAwesomeIcon icon={social.icon} size="2x" />
     </a>
   )
 })
+
 const Header = () => {
+
   const handleClick = (anchor) => () => {
     const id = `${anchor}-section`;
     const element = document.getElementById(id);
@@ -50,8 +52,6 @@ const Header = () => {
       });
     }
   };
-
-
 
   return (
     <Box
@@ -79,6 +79,20 @@ const Header = () => {
           <nav>
             <HStack spacing={8}>
               {/* Add links to Projects and Contact me section */}
+              <a
+                id='nav-projects'
+                href="/#projects"
+                onClick={handleClick('projects')}>
+                Projects
+              </a>
+              <a
+                id="nav-contact-me"
+                href="/#contact-me"
+                onClick={handleClick('contactme')}>
+                Contact me
+              </a>
+
+              {/* <Link to={{pathname: '/this-view-path', hash: '#faq-1'}}>Question 1</Link> */}
             </HStack>
           </nav>
         </HStack>
