@@ -32,6 +32,13 @@ const socials = [
   },
 ];
 
+const externalLinks = socials.map(social => {
+  return (
+    <a href="social.url">
+      <FontAwesomeIcon icon={social.icon} size="2x" />
+    </a>
+  )
+})
 const Header = () => {
   const handleClick = (anchor) => () => {
     const id = `${anchor}-section`;
@@ -43,6 +50,8 @@ const Header = () => {
       });
     }
   };
+
+
 
   return (
     <Box
@@ -65,6 +74,7 @@ const Header = () => {
         >
           <nav>
             {/* Add social media links based on the `socials` data */}
+            {externalLinks}
           </nav>
           <nav>
             <HStack spacing={8}>
