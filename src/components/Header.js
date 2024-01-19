@@ -32,6 +32,7 @@ const socials = [
   },
 ];
 
+//Creates the icons based on the const socials 
 const externalLinks = socials.map(social => {
   return (
     <a className='external-link' href="social.url">
