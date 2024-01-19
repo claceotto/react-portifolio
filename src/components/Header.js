@@ -13,33 +13,39 @@ const socials = [
   {
     icon: faEnvelope,
     url: "mailto: hello@example.com",
+    key: 'email',
   },
   {
     icon: faGithub,
     url: "https://github.com",
+    key: 'Github',
   },
   {
     icon: faLinkedin,
     url: "https://www.linkedin.com",
+    key: 'Linkedin',
   },
   {
     icon: faMedium,
     url: "https://medium.com",
+    key: 'Medium',
   },
   {
     icon: faStackOverflow,
     url: "https://stackoverflow.com",
+    key: 'StackOverflow',
   },
 ];
 
 //Creates the icons based on the const socials 
 const externalLinks = socials.map(social => {
   return (
-    <a className='external-link' href="social.url">
+    <a className='external-link' href="social.url" key={social.key} >
       <FontAwesomeIcon icon={social.icon} size="2x" />
     </a>
   )
 })
+
 
 const Header = () => {
 
@@ -81,13 +87,13 @@ const Header = () => {
             <HStack spacing={8}>
               {/* Add links to Projects and Contact me section */}
               <a
-                id='nav-projects'
+                key='nav-projects'
                 href="/#projects"
                 onClick={handleClick('projects')}>
                 Projects
               </a>
               <a
-                id="nav-contact-me"
+                key="nav-contact-me"
                 href="/#contact-me"
                 onClick={handleClick('contactme')}>
                 Contact me
