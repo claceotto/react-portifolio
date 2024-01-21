@@ -22,3 +22,7 @@ code {
 a.external-link {
   padding-right: 2rem;
 }
+
+select > option {
+  color: black;
+}
