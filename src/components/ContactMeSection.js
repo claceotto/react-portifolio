@@ -57,7 +57,7 @@ const LandingSection = () => {
               comment: '',
             }}
             onSubmit={(values, actions) => {
-              preventDefault()
+              //preventDefault()
               submit('http://localhost:3000/', values)
               actions.setSubmitting(false)
               console.log(isValidating)
@@ -70,7 +70,7 @@ const LandingSection = () => {
             })}
           >
             {({ handleSubmit, handleChange, errors, touched, values }) => (
-              <form onSubmit={handleSubmit}>
+              <form onSubmit={(e) => { e.preventDefault(); handleSubmit(e) }}>
                 <VStack spacing={4}>
                   <FormControl isInvalid={!!errors.firstName && touched.firstName}>
                     <FormLabel htmlFor="firstName">Name</FormLabel>
@@ -116,8 +116,13 @@ const LandingSection = () => {
                     />
                     <FormErrorMessage>{errors.comment}</FormErrorMessage>
                   </FormControl>
-                  <Button type="submit" colorScheme="purple" width="full">
-                    Submit
+                  <Button
+                    type="submit"
+                    colorScheme="purple"
+                    width="full"
+                    disabled={isLoading}
+                  >
+                    {isLoading ? 'Loading...' : 'Submit'}
                   </Button>
                 </VStack>
               </form>
