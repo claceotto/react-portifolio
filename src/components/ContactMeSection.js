@@ -16,10 +16,17 @@ import * as Yup from 'yup';
 import FullScreenSection from "./FullScreenSection";
 import useSubmit from "../hooks/useSubmit";
 import { useAlertContext } from "../context/alertContext";
+import { isDOMComponent } from "react-dom/test-utils";
 
 const LandingSection = () => {
   const { isLoading, response, submit } = useSubmit();
   const { onOpen } = useAlertContext();
+
+  useEffect(() => {
+    if (response) {
+      onOpen(response.type, response.message)
+    }
+  }, [response]);
 
   // const formik = useFormik({
   //   initialValues: {
@@ -57,10 +64,8 @@ const LandingSection = () => {
               comment: '',
             }}
             onSubmit={(values, actions) => {
-              //preventDefault()
               submit('http://localhost:3000/', values)
               actions.setSubmitting(false)
-              console.log(isValidating)
             }}
             validationSchema={Yup.object({
               firstName: Yup.string().required('Required'),
@@ -131,6 +136,7 @@ const LandingSection = () => {
         </Box>
       </VStack>
     </FullScreenSection >
+
   );
 };
 
