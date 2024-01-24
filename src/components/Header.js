@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import {
@@ -49,6 +49,32 @@ const externalLinks = socials.map(social => {
 
 const Header = () => {
 
+  const [translateYValue, settranslateYValue] = useState(0)
+
+  useEffect(() => {
+    let lastScrollTop = window.scrollY || document.documentElement.scrollTop;
+
+    const handleScroll = (e) => {
+      const scrollTopPosition =
+        window.scrollY || document.documentElement.scrollTop;
+
+      if (scrollTopPosition > lastScrollTop) {
+        console.log('scrolling down')
+        settranslateYValue(-200)
+      } else if (scrollTopPosition < lastScrollTop) {
+        console.log('scrolling up')
+        settranslateYValue(0)
+      }
+      lastScrollTop = scrollTopPosition <= 0 ? 0 : scrollTopPosition
+    }
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [scroll]);
+
   const handleClick = (anchor) => () => {
     const id = `${anchor}-section`;
     const element = document.getElementById(id);
@@ -66,7 +92,7 @@ const Header = () => {
       top={0}
       left={0}
       right={0}
-      translateY={0}
+      translateY={translateYValue}
       transitionProperty="transform"
       transitionDuration=".3s"
       transitionTimingFunction="ease-in-out"
