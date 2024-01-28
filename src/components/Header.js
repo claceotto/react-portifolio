@@ -49,7 +49,7 @@ const externalLinks = socials.map(social => {
 
 const Header = () => {
 
-  const [translateYValue, settranslateYValue] = useState(0)
+  const [translateYValue, settranslateYValue] = useState(true)
 
   useEffect(() => {
     let lastScrollTop = window.scrollY || document.documentElement.scrollTop;
@@ -61,9 +61,12 @@ const Header = () => {
       if (scrollTopPosition > lastScrollTop) {
         console.log('scrolling down')
         settranslateYValue(-200)
+
+
       } else if (scrollTopPosition < lastScrollTop) {
         console.log('scrolling up')
         settranslateYValue(0)
+
       }
       lastScrollTop = scrollTopPosition <= 0 ? 0 : scrollTopPosition
     }
@@ -92,11 +95,14 @@ const Header = () => {
       top={0}
       left={0}
       right={0}
+      tranlate='auto'
+      //translateY={translateYValue}
       translateY={translateYValue}
       transitionProperty="transform"
       transitionDuration=".3s"
       transitionTimingFunction="ease-in-out"
       backgroundColor="#18181b"
+      className='header'
     >
       <Box color="white" maxWidth="1280px" margin="0 auto">
         <HStack
