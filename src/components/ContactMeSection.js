@@ -83,13 +83,14 @@ const LandingSection = () => {
                   name="email"
                   type="email"
                   onChange={handleChange}
+                  onBlur={handleBlur}
                   value={values.email}
                 />
                 <FormErrorMessage>{errors.email}</FormErrorMessage>
               </FormControl>
               <FormControl>
                 <FormLabel htmlFor="type">Type of enquiry</FormLabel>
-                <Select id="type" name="type" value={values.type} onChange={handleChange}>
+                <Select id="type" name="type" value={values.type} onChange={handleChange} onBlur={handleBlur}>
                   <option value="hireMe">Freelance project proposal</option>
                   <option value="openSource">Open source consultancy session</option>
                   <option value="other">Other</option>
@@ -102,6 +103,7 @@ const LandingSection = () => {
                   name="comment"
                   height={250}
                   onChange={handleChange}
+                  onBlur={handleBlur}
                   value={values.comment}
                 />
                 <FormErrorMessage>{errors.comment}</FormErrorMessage>
