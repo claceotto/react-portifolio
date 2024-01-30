@@ -40,7 +40,7 @@ const socials = [
 //Creates the icons based on the const socials 
 const externalLinks = socials.map(social => {
   return (
-    <a className='external-link' href="social.url" key={social.key} >
+    <a className='external-link' href={social.url} key={social.key} >
       <FontAwesomeIcon icon={social.icon} size="2x" />
     </a>
   )
