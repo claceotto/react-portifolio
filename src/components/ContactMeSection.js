@@ -21,7 +21,7 @@ const LandingSection = () => {
   const { isLoading, response, submit } = useSubmit();
   const { onOpen } = useAlertContext();
 
-  const { errors, touched, values, handleChange, handleSubmit, resetForm } = useFormik({
+  const { errors, touched, values, handleChange, handleBlur, handleSubmit, resetForm } = useFormik({
     initialValues: {
       firstName: '',
       email: '',
@@ -71,6 +71,7 @@ const LandingSection = () => {
                   name="firstName"
                   type='text'
                   onChange={handleChange}
+                  onBlur={handleBlur}
                   value={values.firstName}
                 />
                 <FormErrorMessage>{errors.firstName}</FormErrorMessage>
