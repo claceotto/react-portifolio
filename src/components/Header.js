@@ -66,7 +66,6 @@ const Header = () => {
       } else if (scrollTopPosition < lastScrollTop) {
         console.log('scrolling up')
         settranslateYValue(0)
-
       }
       lastScrollTop = scrollTopPosition <= 0 ? 0 : scrollTopPosition
     }
@@ -95,8 +94,8 @@ const Header = () => {
       top={0}
       left={0}
       right={0}
-      tranlate='auto'
-      //translateY={translateYValue}
+      zIndex={2}
+      transform={'auto'}
       translateY={translateYValue}
       transitionProperty="transform"
       transitionDuration=".3s"
