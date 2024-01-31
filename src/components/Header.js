@@ -59,12 +59,10 @@ const Header = () => {
         window.scrollY || document.documentElement.scrollTop;
 
       if (scrollTopPosition > lastScrollTop) {
-        console.log('scrolling down')
         settranslateYValue(-200)
 
 
       } else if (scrollTopPosition < lastScrollTop) {
-        console.log('scrolling up')
         settranslateYValue(0)
       }
       lastScrollTop = scrollTopPosition <= 0 ? 0 : scrollTopPosition
