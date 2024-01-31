@@ -18,12 +18,12 @@ const LandingSection = () => (
     isDarkBackground
     backgroundColor="#2A4365"
   >
-    <Avatar name='Pete' size='lg' src='https://i.pravatar.cc/150?img=7' />
+    <Avatar name='Pete' size='xlg' src='https://i.pravatar.cc/150?img=7' />
     <VStack
       spacing={2}
       align='center'
     >
-      <Heading as='h6' size='xs' pb={7}>
+      <Heading as='h6' size='small' pb={7}>
         {greeting}
       </Heading>
       <Heading>
