@@ -112,9 +112,9 @@ const LandingSection = () => {
                 type="submit"
                 colorScheme="purple"
                 width="full"
-                disabled={isLoading}
+                isLoading={isLoading}
               >
-                {isLoading ? 'Loading...' : 'Submit'}
+                Submit
               </Button>
             </VStack>
           </form>
